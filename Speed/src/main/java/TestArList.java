@@ -16,50 +16,62 @@ public class TestArList {
             arrayList.add(i);
         }
     }
-    //private LinkedList<Integer> linkedList = new LinkedList<Integer>();
 
     public long[] add() {
-        //System.out.println("==============Add==============");
+
        long[] rez = {0, 0, 0};
 
         rez[0] = addTo(0);
         rez[1] = addTo(arrayList.size()/2);
         rez[2] = addTo(arrayList.size() - 1);
 
-        //System.out.println("--Add elements in ArrayList");
-        //System.out.println("Begin: " + addTo(0) + " ms");
-        //System.out.println("Middle: " + addTo(arrayList.size()/2) + " ms");
-        //System.out.println("End: " + addTo(arrayList.size() - 1) + " ms");
-
-        //System.out.println((ArrayTime < LinkedTime)?"ArrayList is faster":"LinkedList is faster");
         return rez;
 
     }
 
-//    public void insert(int iter) {
-//        System.out.println("==============Insert==============");
-//
-//        Date startArray = new Date();
-//        for(int i = 0; i < iter; i++) arrayList.add(0, i);
-//        Date finishArray = new Date();
-//        long ArrayTime = finishArray.getTime() - startArray.getTime();
-//
-//        Date startLinked = new Date();
-//        for(int i = 0; i < iter; i++) linkedList.add(0, i);
-//        Date finishLinked = new Date();
-//        long LinkedTime = finishLinked.getTime() - startLinked.getTime();
-//
-//        System.out.println("--Insert elements to begin");
-//        System.out.println("ArrayList: " + ArrayTime + " ms");
-//        System.out.println("LinkedList: " + LinkedTime + " ms");
-//
-//        System.out.println((ArrayTime < LinkedTime)?"ArrayList is faster":"LinkedList is faster");
-//
-//    }
+    public long[] remove() {
+
+        long[] rez = {0, 0, 0};
+
+        rez[0] = removeFrom(0);
+        rez[1] = removeFrom(arrayList.size()/2);
+        rez[2] = removeFrom(arrayList.size() - 1);
+
+        return rez;
+    }
+
+    public long[] get() {
+
+        long[] rez = {0, 0, 0};
+
+        rez[0] = getFrom(0);
+        rez[1] = getFrom(arrayList.size()/2);
+        rez[2] = getFrom(arrayList.size() - 1);
+
+        return rez;
+    }
 
     private long addTo(int pos) {
         Date startArray = new Date();
         for(int i = 0; i < iter; i++) arrayList.add(pos, i);
+        Date finishArray = new Date();
+        long ArrayTime = finishArray.getTime() - startArray.getTime();
+        return ArrayTime;
+    }
+
+    private long removeFrom(int pos) {
+        Date startArray = new Date();
+        if(pos==arrayList.size()-1) for(int i = 0; i < iter; i++) arrayList.remove(pos--);
+        else for(int i = 0; i < iter; i++) arrayList.remove(pos);
+        Date finishArray = new Date();
+        long ArrayTime = finishArray.getTime() - startArray.getTime();
+        return ArrayTime;
+    }
+
+    private long getFrom(int pos) {
+        int curr;
+        Date startArray = new Date();
+        for(int i = 0; i < iter; i++) curr = arrayList.get(pos);
         Date finishArray = new Date();
         long ArrayTime = finishArray.getTime() - startArray.getTime();
         return ArrayTime;
