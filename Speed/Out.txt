@@ -1,0 +1,40 @@
+Введите кол-во итераций от 1000: 10000
+==============Add==============
+--Begin
+ArrayList: 511 ms
+LinkedList: 2 ms
+LinkedList is faster
+--Middle
+ArrayList: 239 ms
+LinkedList: 2963 ms
+ArrayList is faster
+--End
+ArrayList: 21 ms
+LinkedList: 1 ms
+They are similar
+==============Remove==============
+--Begin
+ArrayList: 608 ms
+LinkedList: 2 ms
+LinkedList is faster
+--Middle
+ArrayList: 196 ms
+LinkedList: 2628 ms
+ArrayList is faster
+--End
+ArrayList: 2 ms
+LinkedList: 2 ms
+They are similar
+==============Get==============
+--Begin
+ArrayList: 2 ms
+LinkedList: 2 ms
+They are similar
+--Middle
+ArrayList: 3 ms
+LinkedList: 2391 ms
+ArrayList is faster
+--End
+ArrayList: 1 ms
+LinkedList: 1 ms
+They are similar
